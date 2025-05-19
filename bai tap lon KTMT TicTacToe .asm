@@ -89,7 +89,7 @@ CONTINUE:
 	call PRINT_DRAW    ; Neu khong ai thang in hoa
 programEnd:
     mov ah, 4Ch
-    mov al, 0    ; m„ tho·t, cÛ th? l‡ 0 ho?c m„ kh·c t˘y ˝
+    mov al, 0    ; m√£ tho√°t, c√≥ th? l√† 0 ho?c m√£ kh√°c t√πy √Ω
     int 21h
 ret
   
@@ -215,7 +215,7 @@ MENU_HELP:
     call IN_DONG_MOI
     call IN_DONG_MOI
 
-    ; nhap phim bat ki v‡ quay lai menu
+    ; nhap phim bat ki v√† quay lai menu
     mov ah, 01h
     int 21h
     jmp MENU
@@ -378,27 +378,27 @@ print_colored_at proc
     cmp dl,'o'
     je print_o
 
-    mov bl, 0Fh
-    jmp print_common
+    mov bl, 0Fh  ;mau den
+    jmp print_colored
 
 
 
 
     print_o:
-        mov bl, 0Ah
-        jmp print_common
+        mov bl, 0Ah ;mau xanh la nen den
+        jmp print_colored
 
     print_x:
-        mov bl, 0Ch ; –o s·ng
+        mov bl, 0Ch ;mau do nen den
 
 
 
-    print_common:
+    print_colored:
         push cx
-        mov ah, 09h
+        mov ah, 09h ;ham in mau
         mov bh, 0
-        mov cx, 1
-        int 10h
+        mov cx, 1  ;in 1 lan
+        int 10h  ;lenh ngat cua ham in mau
         pop cx
 
 
